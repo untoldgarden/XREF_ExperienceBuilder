@@ -452,7 +452,7 @@
       "url": "https://packages.unity.com"
     },
     "com.untoldgarden.private.xref": {
-      "version": "0.1.5",
+      "version": "0.1.6",
       "depth": 0,
       "source": "registry",
       "dependencies": {
