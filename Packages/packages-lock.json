@@ -474,7 +474,7 @@
       "url": "http://35.189.115.164:4873"
     },
     "com.untoldgarden.xref-experience-builder": {
-      "version": "0.1.8",
+      "version": "0.1.9",
       "depth": 0,
       "source": "registry",
       "dependencies": {
