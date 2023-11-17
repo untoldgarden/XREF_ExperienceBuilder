@@ -1,96 +1,95 @@
 {
   "dependencies": {
-    "com.cesium.unity": {
-      "version": "file:../GooglePackages/com.cesium.unity-1.4.0.tgz",
-      "depth": 0,
-      "source": "local-tarball",
-      "dependencies": {
-        "com.unity.mathematics": "1.2.0",
-        "com.unity.test-framework": "1.1.31",
-        "com.unity.shadergraph": "12.1.6",
-        "com.unity.inputsystem": "1.4.2"
-      }
-    },
     "com.google.ar.core.arfoundation.extensions-lite": {
-      "version": "file:../GooglePackages/arcore-unity-extensions-1.39.0-without-edm4u.tgz",
+      "version": "1.40.0",
       "depth": 0,
-      "source": "local-tarball",
+      "source": "registry",
       "dependencies": {
-        "com.google.external-dependency-manager": "^1.2.175",
+        "com.google.external-dependency-manager": "^1.2.177",
         "com.unity.xr.arfoundation": "4.1.5",
         "com.unity.xr.arcore": "4.1.5",
         "com.unity.xr.arkit": "4.1.5"
-      }
+      },
+      "url": "http://35.189.115.164:4873"
     },
     "com.google.external-dependency-manager": {
-      "version": "file:../GooglePackages/com.google.external-dependency-manager-1.2.176.tgz",
+      "version": "1.2.176",
       "depth": 0,
-      "source": "local-tarball",
-      "dependencies": {}
+      "source": "registry",
+      "dependencies": {},
+      "url": "http://35.189.115.164:4873"
     },
     "com.google.firebase.analytics": {
-      "version": "file:../GooglePackages/com.google.firebase.analytics-11.0.0.tgz",
-      "depth": 0,
-      "source": "local-tarball",
+      "version": "11.0.0",
+      "depth": 1,
+      "source": "registry",
       "dependencies": {
         "com.google.firebase.app": "11.0.0"
-      }
+      },
+      "url": "http://35.189.115.164:4873"
     },
     "com.google.firebase.app": {
-      "version": "file:../GooglePackages/com.google.firebase.app-11.0.0.tgz",
+      "version": "11.0.0",
       "depth": 0,
-      "source": "local-tarball",
+      "source": "registry",
       "dependencies": {
         "com.google.external-dependency-manager": "1.2.176"
-      }
+      },
+      "url": "http://35.189.115.164:4873"
     },
     "com.google.firebase.auth": {
-      "version": "file:../GooglePackages/com.google.firebase.auth-11.0.0.tgz",
-      "depth": 0,
-      "source": "local-tarball",
+      "version": "11.0.0",
+      "depth": 2,
+      "source": "registry",
       "dependencies": {
         "com.google.firebase.app": "11.0.0"
-      }
+      },
+      "url": "http://35.189.115.164:4873"
     },
     "com.google.firebase.crashlytics": {
-      "version": "file:../GooglePackages/com.google.firebase.crashlytics-11.0.0.tgz",
-      "depth": 0,
-      "source": "local-tarball",
+      "version": "11.0.0",
+      "depth": 1,
+      "source": "registry",
       "dependencies": {
         "com.google.firebase.app": "11.0.0"
-      }
+      },
+      "url": "http://35.189.115.164:4873"
     },
     "com.google.firebase.database": {
-      "version": "file:../GooglePackages/com.google.firebase.database-11.0.0.tgz",
-      "depth": 0,
-      "source": "local-tarball",
+      "version": "11.0.0",
+      "depth": 1,
+      "source": "registry",
       "dependencies": {
         "com.google.firebase.auth": "11.0.0"
-      }
+      },
+      "url": "http://35.189.115.164:4873"
     },
     "com.google.firebase.functions": {
-      "version": "file:../GooglePackages/com.google.firebase.functions-11.0.0.tgz",
-      "depth": 0,
-      "source": "local-tarball",
+      "version": "11.0.0",
+      "depth": 1,
+      "source": "registry",
       "dependencies": {
         "com.google.firebase.app": "11.0.0"
-      }
+      },
+      "url": "http://35.189.115.164:4873"
     },
     "com.google.firebase.remote-config": {
-      "version": "file:../GooglePackages/com.google.firebase.remote-config-11.0.0.tgz",
+      "version": "11.0.0",
       "depth": 0,
-      "source": "local-tarball",
+      "source": "registry",
       "dependencies": {
         "com.google.firebase.app": "11.0.0"
-      }
+      },
+      "url": "http://35.189.115.164:4873"
     },
     "com.google.firebase.storage": {
-      "version": "file:../GooglePackages/com.google.firebase.storage-11.0.0.tgz",
-      "depth": 0,
-      "source": "local-tarball",
+      "version": "11.0.0",
+      "depth": 1,
+      "source": "registry",
       "dependencies": {
         "com.google.firebase.auth": "11.0.0"
-      }
+      },
+      "url": "http://35.189.115.164:4873"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
@@ -452,7 +451,7 @@
       "url": "https://packages.unity.com"
     },
     "com.untoldgarden.xref": {
-      "version": "0.1.12",
+      "version": "0.1.14",
       "depth": 0,
       "source": "registry",
       "dependencies": {
