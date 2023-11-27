@@ -451,7 +451,7 @@
       "url": "https://packages.unity.com"
     },
     "com.untoldgarden.xref": {
-      "version": "0.1.14",
+      "version": "0.1.15",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -473,7 +473,7 @@
       "url": "http://35.189.115.164:4873"
     },
     "com.untoldgarden.xref-experience-builder": {
-      "version": "0.1.9",
+      "version": "0.1.10",
       "depth": 0,
       "source": "registry",
       "dependencies": {
