@@ -466,7 +466,7 @@
       "url": "https://packages.unity.com"
     },
     "com.untoldgarden.xref": {
-      "version": "0.2.1",
+      "version": "0.2.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -490,11 +490,11 @@
       "url": "http://35.189.115.164:4873"
     },
     "com.untoldgarden.xref-experience-builder": {
-      "version": "0.2.1",
+      "version": "0.2.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.untoldgarden.xref": "0.2.0",
+        "com.untoldgarden.xref": "0.2.2",
         "com.unity.xr.arkit": "4.2.3",
         "com.unity.xr.arcore": "4.2.3",
         "com.unity.visualscripting": "1.8.0",
