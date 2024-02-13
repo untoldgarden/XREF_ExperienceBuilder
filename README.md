@@ -1,5 +1,5 @@
-# XREF_ExperienceBuilder
+# XREF Template Project
 
-### Add GooglePackages
-1. Download this GooglePackages zip: https://drive.google.com/drive/folders/1kJX4Ri-iqOIdzEbSkuvsAXZtOp-urGRZ?usp=sharing
-2. Unzip it to the project root folder.
+This is a template project for building XR experiences with XREF to publish on [Meadow](https://meadow.space/). 
+
+[Read the manual here.](https://manual.meadow.space/install-the-template-project.html)
