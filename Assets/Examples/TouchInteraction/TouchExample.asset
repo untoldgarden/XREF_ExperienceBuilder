@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 039f7543ee8af46d9b7ef60bdf09ada4, type: 3}
+  m_Name: TouchExample
+  m_EditorClassIdentifier: 
+  showHeadphonesOnboarding: 0
+  overrideMuteSwitch: 1
+  increaseScreenBrightness: 1
+  enableDefaultDirectionalLight: 1
+  faceNorth: 1
+  placeInFrontOfCamera: 0
+  repositionType: 0
+  verticalPositioning: 1
+  repositionThreshold: 0.1
+  smoothTime: 5
+  OnReposition:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRepositionStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRepositionEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  useGeofencing: 0
+  geofencingRadius: 0
+  geofencingStart: 0
+  useUserGroups: 0
+  remoteOnly: 1
+  maxUsersInGroup: 15
+  maxGroups: 10000
+  useTimeLimit: 0
+  timeLimit: 60
+  cameraFacingDirection: 1
+  usePerformanceManager: 0
+  targetFPSAndroid: 30
+  targetFPSIOS: 60
+  usePointCloudManager: 0
+  pointCloudPrefab: {fileID: 0}
+  usePlaneManager: 1
+  planePrefab: {fileID: 0}
+  useFloorPlane: 1
+  floorPrefab: {fileID: 0}
+  planeDetectionMode: 1
+  occlusionSettings:
+  - useOcclusion: 0
+    environmentDepthMode: 1
+    temporalSmoothingEnabled: 1
+    humanSegmentationStencilMode: 2
+    humanSegmentationDepthMode: 0
+    occlusionPreferenceMode: 1
+  - useOcclusion: 0
+    environmentDepthMode: 1
+    temporalSmoothingEnabled: 1
+    humanSegmentationStencilMode: 2
+    humanSegmentationDepthMode: 0
+    occlusionPreferenceMode: 1
+  - useOcclusion: 0
+    environmentDepthMode: 1
+    temporalSmoothingEnabled: 1
+    humanSegmentationStencilMode: 2
+    humanSegmentationDepthMode: 0
+    occlusionPreferenceMode: 1
+  reflectionSettings:
+  - useReflections: 0
+    automaticPlacement: 1
+    environmentTextureFilter: 2
+  - useReflections: 0
+    automaticPlacement: 1
+    environmentTextureFilter: 2
+  - useReflections: 0
+    automaticPlacement: 1
+    environmentTextureFilter: 2
+  useImageTracking: 0
+  useStreetscapeGeometry: 0
+  streetscapeGeometryMaterial: {fileID: 0}
+  useARCameraBackgroundTexture: 0
+  ARCameraBackgroundMode: 0
+  usePostProcessing: 0
+  useLightEstimation: 0
+  useRecording: 1
