@@ -338,18 +338,18 @@
       "url": "https://packages.unity.com"
     },
     "com.untoldgarden.xref": {
-      "version": "0.2.30",
+      "version": "0.2.31",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
       "url": "http://35.189.115.164:4873"
     },
     "com.untoldgarden.xref-experience-builder": {
-      "version": "0.2.30",
+      "version": "0.2.31",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.untoldgarden.xref": "0.2.30",
+        "com.untoldgarden.xref": "0.2.31",
         "com.unity.visualscripting": "1.8.0"
       },
       "url": "http://35.189.115.164:4873"
