@@ -1,0 +1,86 @@
+ManifestFileVersion: 0
+UnityVersion: 2023.2.20f1
+CRC: 961792142
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: eb865e6cda37aff5bb98e4e887086587
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: a75a16b7bbab7b50b762aa20c03ad0df
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 90bbfbb84661ffbfdbf2cdfdbcab22cc
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 95e66c6366d904e98bc83428217d4fd7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 039f7543ee8af46d9b7ef60bdf09ada4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7e178f0836a5f4006b6ea3c101d328e9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8dcf00a4e1a7a4bfeb1fe9376787c063, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 43c80301d72ab452f9c01fa9b224f316, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 32f02109b3c46450a9397a75a77bc27c, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Unity.RenderPipelines.Universal.Runtime
+  ClassName: UnityEngine.Rendering.Universal.TemporalAA/Settings
+- AssemblyName: Unity.VisualScripting.Core
+  ClassName: Unity.VisualScripting.SerializationData
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.UnityEvent
+- AssemblyName: XREF.Core
+  ClassName: XREF.XR.ContentSettings/OcclusionSettings
+- AssemblyName: XREF.Core
+  ClassName: XREF.XR.ContentSettings/ReflectionSettings
+- AssemblyName: XREF.Core
+  ClassName: XREF.XR.ContentSettings/RepositionType
+Assets:
+- Assets/Examples/Multiplayer/MultiplayerExample.asset
+- Packages/com.unity.xr.arfoundation/Assets/Materials/YAxis.mat
+- Packages/com.unity.xr.arfoundation/Assets/Materials/XAxis.mat
+- Assets/Examples/Multiplayer/Red.mat
+- Assets/Examples/Multiplayer/MultiplayerGraph.asset
+- Assets/Examples/Multiplayer/UserPrefab.prefab
+- Assets/Temp/ardebugmenu/XREFBundleMeta.txt
+- Assets/Examples/Multiplayer/MultiplayerExample.prefab
+- Assets/Examples/Multiplayer/Anchor.fbx
+- Packages/com.unity.xr.arfoundation/Assets/Prefabs/OriginTransform.prefab
+- Packages/com.unity.xr.arfoundation/Assets/Prefabs/AnchorTransform.prefab
+- Packages/com.unity.xr.arfoundation/Assets/Materials/ZAxis.mat
+Dependencies: []

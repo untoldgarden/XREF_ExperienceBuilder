@@ -1,0 +1,90 @@
+#unity-text-input {
+    align-items: center;
+    justify-content: flex-start;
+    align-self: auto;
+    -unity-text-align: upper-center;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#inspect-bundle-foldout Toggle {
+    display: flex;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+#unity-checkmark {
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    translate: -1px 0;
+}
+
+Toggle Label {
+    display: flex;
+    -unity-text-align: middle-left;
+}
+
+.unity-foldout__content {
+    display: flex;
+    visibility: visible;
+    margin-top: 10px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.unity-toggle__input {
+    overflow: visible;
+}
+
+.upload-button {
+    background-color: rgb(0, 167, 111);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.upload-button:hover {
+    background-color: rgb(37, 153, 114);
+}
+
+.upload-button:active {
+    background-color: rgb(34, 140, 104);
+    border-left-color: rgb(110, 151, 218);
+    border-right-color: rgb(110, 151, 218);
+    border-top-color: rgb(110, 151, 218);
+    border-bottom-color: rgb(110, 151, 218);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+.button {
+}
+
+.button:hover {
+}

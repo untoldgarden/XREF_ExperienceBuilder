@@ -1,0 +1,6 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement name="experience-card-container" style="flex-grow: 1; justify-content: flex-start; flex-direction: row; align-items: center; margin-top: 5px; margin-bottom: 5px;">
+        <engine:Label text="Label" name="file-name-label" style="flex-grow: 1; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 20px; padding-bottom: 0; padding-left: 0;" />
+        <engine:Label text="Label" name="file-size-label" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 10px; margin-bottom: 0; margin-left: 0; opacity: 0.7;" />
+    </engine:VisualElement>
+</engine:UXML>
