@@ -1,15 +1,16 @@
 {
   "dependencies": {
+    "com.google.ar.core.arfoundation.extensions-lite": "1.40.0",
+    "com.google.external-dependency-manager": "1.2.177",
+    "com.google.firebase.app": "11.6.0",
+    "com.google.firebase.remote-config": "11.6.0",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ai.navigation": "2.0.0",
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.device-simulator.devices": "1.0.0",
     "com.unity.ide.rider": "3.0.28",
     "com.unity.ide.visualstudio": "2.0.22",
-<<<<<<< Updated upstream
-=======
     "com.unity.ide.vscode": "1.2.5",
->>>>>>> Stashed changes
     "com.unity.mobile.android-logcat": "1.4.1",
     "com.unity.mobile.notifications": "2.3.2",
     "com.unity.nuget.newtonsoft-json": "3.2.1",
@@ -24,13 +25,8 @@
     "com.unity.xr.arfoundation": "6.0.0-pre.4",
     "com.unity.xr.arkit": "6.0.0-pre.4",
     "com.unity.xr.interaction.toolkit": "2.5.4",
-<<<<<<< Updated upstream
-    "com.untoldgarden.xref": "0.2.31",
-    "com.untoldgarden.xref-experience-builder": "0.2.31",
-=======
     "com.untoldgarden.xref": "0.2.49",
     "com.untoldgarden.xref-experience-builder": "0.2.49",
->>>>>>> Stashed changes
     "com.unity.modules.accessibility": "1.0.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
@@ -76,7 +72,10 @@
       "name": "Untold Garden",
       "url": "http://35.189.115.164:4873",
       "scopes": [
-        "com.untoldgarden"
+        "com.untoldgarden",
+        "com.google.ar.core.arfoundation.extensions-lite",
+        "com.google.external-dependency-manager",
+        "com.google.firebase"
       ]
     }
   ]

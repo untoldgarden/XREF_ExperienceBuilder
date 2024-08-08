@@ -1,7 +1,5 @@
 {
   "dependencies": {
-<<<<<<< Updated upstream
-=======
     "com.google.ar.core.arfoundation.extensions-lite": {
       "version": "1.40.0",
       "depth": 0,
@@ -39,7 +37,6 @@
       },
       "url": "http://35.189.115.164:4873"
     },
->>>>>>> Stashed changes
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -120,6 +117,13 @@
       "dependencies": {
         "com.unity.test-framework": "1.1.9"
       },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.ide.vscode": {
+      "version": "1.2.5",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
@@ -378,21 +382,6 @@
       "url": "https://packages.unity.com"
     },
     "com.untoldgarden.xref": {
-<<<<<<< Updated upstream
-      "version": "0.2.31",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "http://35.189.115.164:4873"
-    },
-    "com.untoldgarden.xref-experience-builder": {
-      "version": "0.2.31",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.untoldgarden.xref": "0.2.31",
-        "com.unity.visualscripting": "1.8.0"
-=======
       "version": "0.2.49",
       "depth": 0,
       "source": "registry",
@@ -417,7 +406,6 @@
         "com.unity.modules.physics": "1.0.0",
         "com.unity.modules.unitywebrequesttexture": "1.0.0",
         "com.unity.modules.unitywebrequestwww": "1.0.0"
->>>>>>> Stashed changes
       },
       "url": "http://35.189.115.164:4873"
     },

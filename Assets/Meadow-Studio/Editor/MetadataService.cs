@@ -7,15 +7,10 @@ using Newtonsoft.Json.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
-<<<<<<< Updated upstream
-public class MetadataService
-{
-=======
 namespace Meadow.Studio
 {
     public class MetadataService
     {
->>>>>>> Stashed changes
         /// <summary>
         /// Gets all the user's experience metadatas and opens the experience page UI
         /// </summary>
@@ -45,9 +40,5 @@ namespace Meadow.Studio
                 
             }
         }
-<<<<<<< Updated upstream
-
-=======
     }
->>>>>>> Stashed changes
 }

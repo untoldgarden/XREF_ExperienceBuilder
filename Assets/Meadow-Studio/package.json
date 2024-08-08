@@ -2,11 +2,7 @@
   "name": "com.untoldgarden.meadow-studio",
   "package-name": "https://www.github.com/untoldgarden/meadow-studio.git",
   "displayName": "Meadow Studio",
-<<<<<<< Updated upstream
-  "version": "0.1.4",
-=======
   "version": "0.1.5",
->>>>>>> Stashed changes
   "description": "Meadow Studio helpts with creating experiences in Unity and uploading them to the Meadow platform.",
   "unity": "2023.2",
   "author": {
