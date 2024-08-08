@@ -53,6 +53,10 @@ Toggle Label {
 
 .unity-toggle__input {
     overflow: visible;
+<<<<<<< Updated upstream
+=======
+    padding-left: 0;
+>>>>>>> Stashed changes
 }
 
 .upload-button {
@@ -88,3 +92,20 @@ Toggle Label {
 
 .button:hover {
 }
+<<<<<<< Updated upstream
+=======
+
+.unity-toggle {
+    overflow: visible;
+}
+
+.loading-start {
+    transition-duration: 1000s;
+    rotate: -80000deg;
+    transition-timing-function: linear;
+    transition-property: rotate;
+    visibility: visible;
+    display: flex;
+    transition-delay: 0s;
+}
+>>>>>>> Stashed changes

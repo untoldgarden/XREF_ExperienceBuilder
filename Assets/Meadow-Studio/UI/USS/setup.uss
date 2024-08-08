@@ -1,0 +1,4 @@
+.unity-toggle__input {
+    overflow: visible;
+    padding-left: 10px;
+}

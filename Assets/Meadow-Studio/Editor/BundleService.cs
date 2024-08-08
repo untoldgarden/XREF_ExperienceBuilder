@@ -61,7 +61,10 @@ namespace Meadow.Studio
 
             if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
             {
+<<<<<<< Updated upstream
                 Debug.LogError($"Error getting the signed URL: {request.error}");
+=======
+>>>>>>> Stashed changes
                 return new HTTPSResponse { success = false, message = request.error, code = request.responseCode };
             }
             else

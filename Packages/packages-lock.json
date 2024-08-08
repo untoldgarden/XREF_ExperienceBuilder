@@ -1,5 +1,45 @@
 {
   "dependencies": {
+<<<<<<< Updated upstream
+=======
+    "com.google.ar.core.arfoundation.extensions-lite": {
+      "version": "1.40.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.google.external-dependency-manager": "^1.2.177",
+        "com.unity.xr.arfoundation": "4.1.5",
+        "com.unity.xr.arcore": "4.1.5",
+        "com.unity.xr.arkit": "4.1.5"
+      },
+      "url": "http://35.189.115.164:4873"
+    },
+    "com.google.external-dependency-manager": {
+      "version": "1.2.177",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "http://35.189.115.164:4873"
+    },
+    "com.google.firebase.app": {
+      "version": "11.6.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.google.external-dependency-manager": "1.2.177"
+      },
+      "url": "http://35.189.115.164:4873"
+    },
+    "com.google.firebase.remote-config": {
+      "version": "11.6.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.google.firebase.app": "11.6.0"
+      },
+      "url": "http://35.189.115.164:4873"
+    },
+>>>>>>> Stashed changes
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -338,6 +378,7 @@
       "url": "https://packages.unity.com"
     },
     "com.untoldgarden.xref": {
+<<<<<<< Updated upstream
       "version": "0.2.31",
       "depth": 0,
       "source": "registry",
@@ -351,6 +392,32 @@
       "dependencies": {
         "com.untoldgarden.xref": "0.2.31",
         "com.unity.visualscripting": "1.8.0"
+=======
+      "version": "0.2.49",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.render-pipelines.universal": "16.0.6"
+      },
+      "url": "http://35.189.115.164:4873"
+    },
+    "com.untoldgarden.xref-experience-builder": {
+      "version": "0.2.49",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.untoldgarden.xref": "0.2.49",
+        "com.unity.visualscripting": "1.8.0",
+        "com.unity.test-framework": "1.3.9",
+        "com.unity.mathematics": "1.2.6",
+        "com.unity.modules.animation": "1.0.0",
+        "com.unity.modules.ai": "1.0.0",
+        "com.unity.modules.uielements": "1.0.0",
+        "com.unity.modules.audio": "1.0.0",
+        "com.unity.modules.physics": "1.0.0",
+        "com.unity.modules.unitywebrequesttexture": "1.0.0",
+        "com.unity.modules.unitywebrequestwww": "1.0.0"
+>>>>>>> Stashed changes
       },
       "url": "http://35.189.115.164:4873"
     },

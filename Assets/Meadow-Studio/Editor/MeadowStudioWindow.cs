@@ -32,7 +32,11 @@ using UnityEngine.UIElements;
 
 namespace Meadow.Studio
 {
+<<<<<<< Updated upstream
 
+=======
+    [InitializeOnLoad]
+>>>>>>> Stashed changes
     public class MeadowStudioWindow : EditorWindow
     {
         private JObject parsedResponse;
@@ -43,9 +47,18 @@ namespace Meadow.Studio
         float angle = 0.0f;
         private bool isLoading = false;
 
+<<<<<<< Updated upstream
         private bool simplifiedExperiencesView = false;
 
         //upload page
+=======
+        private static bool CheckingForUpdates = false;
+
+        private bool simplifiedExperiencesView = false;
+
+        //upload page
+        private string bundleType = "Experience";
+>>>>>>> Stashed changes
         private bool inspectBundleFoldoutOpen = false;
         private string selectedABName = "";
         private bool iosPlatformEnabled = false;
@@ -54,7 +67,11 @@ namespace Meadow.Studio
         readonly AuthService authService = new();
         readonly BundleService bundleService = new();
         readonly MetadataService metadataService = new();
+<<<<<<< Updated upstream
         readonly UpdateService  updateService = new();
+=======
+        readonly static UpdateService  updateService = new();
+>>>>>>> Stashed changes
         readonly PluginUtils pluginUtil = new();
 
         User user;
@@ -91,6 +108,14 @@ namespace Meadow.Studio
             }
         }
 
+<<<<<<< Updated upstream
+=======
+        static MeadowStudioWindow()
+        {
+            EditorApplication.update += OnEditorUpdate;
+        }
+
+>>>>>>> Stashed changes
         void OnEnable()
         {
             loadingIcon = AssetDatabase.LoadAssetAtPath<Texture2D>(pluginUtil.GetPluginDir(true)+"/Resources/loading.png");
@@ -99,6 +124,7 @@ namespace Meadow.Studio
             
             // pluginUtil.RetrieveAllAssetPaths(assetBundlePaths);
         }
+<<<<<<< Updated upstream
         private void OnEditorUpdate()
         {
             if (isLoading)
@@ -108,6 +134,28 @@ namespace Meadow.Studio
                     angle -= 360.0f;
 
                 Repaint();
+=======
+        private static void OnEditorUpdate()
+        {
+            // if (isLoading)
+            // {
+            //     angle += 2.0f;
+            //     if (angle >= 360.0f)
+            //         angle -= 360.0f;
+
+            //     Repaint();
+            // }
+
+            if(EditorApplication.timeSinceStartup % 240 <= 0.01 && !CheckingForUpdates)
+            {
+                CheckingForUpdates = true;
+                // Debug.Log("Checking for updates");
+                CheckForUpdates();
+            }
+            else if(EditorApplication.timeSinceStartup % 240 > 0.01 && CheckingForUpdates)
+            {
+                CheckingForUpdates = false;
+>>>>>>> Stashed changes
             }
         }
         private void OnDisable()
@@ -157,8 +205,11 @@ namespace Meadow.Studio
         /// </summary>
         private void CreateSignInUI()
         {
+<<<<<<< Updated upstream
             CheckForUpdates();
 
+=======
+>>>>>>> Stashed changes
             //Clear the root visual element
             VisualElement root = rootVisualElement;
             root.Clear();
@@ -227,9 +278,12 @@ namespace Meadow.Studio
         /// <param name="metadata"></param>
         private async void CreateMainUI(JObject metadata)
         {
+<<<<<<< Updated upstream
             CheckForUpdates();
 
 
+=======
+>>>>>>> Stashed changes
             VisualElement root = rootVisualElement;
             root.Clear();
 
@@ -244,10 +298,19 @@ namespace Meadow.Studio
             if (imgResp.success)
             {
                 userImage.style.backgroundImage = imgResp.data as Texture2D;
+<<<<<<< Updated upstream
             }
             else
             {
                 Debug.LogError("Error getting user image: " + imgResp.message);
+=======
+                userImage.style.unityBackgroundImageTintColor = Color.white;
+            }
+            else
+            {
+                userImage.style.backgroundImage = AssetDatabase.LoadAssetAtPath<Texture2D>(pluginUtil.GetPluginDir(true) + "/Resources/profile-placeholder.png");
+                // Debug.LogError("Error getting user image: " + imgResp.message);
+>>>>>>> Stashed changes
             }
 
             //set user button
@@ -429,14 +492,21 @@ namespace Meadow.Studio
             else
             {
                 // Debug.LogError("Error getting experience thumbnail: " + imgResp.message);
+<<<<<<< Updated upstream
+=======
+                thumbnail.style.backgroundImage = null;
+>>>>>>> Stashed changes
             }
         }
 
         private async void CreateUploadUI(string experienceId, string title, bool refresh = false)
         {
+<<<<<<< Updated upstream
             CheckForUpdates();
 
 
+=======
+>>>>>>> Stashed changes
             VisualElement root = rootVisualElement;
             root.Clear();
 
@@ -448,6 +518,23 @@ namespace Meadow.Studio
             Label experienceTitleLabel = root.Query<Label>("experience-title-label");
             experienceTitleLabel.text = title;
 
+<<<<<<< Updated upstream
+=======
+            //set the artwork image
+            VisualElement experienceImage = root.Query<VisualElement>("experience-image");
+            string artworkUrl = $"https://storage.googleapis.com/xref-client.appspot.com/artworkdata%2F{experienceId}%2Fimages%2Fthumbs%2Fcover_600x600";
+            var imgResp = await ImageService.GetImage(artworkUrl);
+            if (imgResp.success)
+            {   
+                experienceImage.style.display = DisplayStyle.Flex;
+                experienceImage.style.backgroundImage = imgResp.data as Texture2D;
+            }
+            else
+            {
+                experienceImage.style.display = DisplayStyle.None;
+            }
+
+>>>>>>> Stashed changes
             //set the back button
             Button backButton = root.Query<Button>("back-button");
             backButton.clicked += () =>
@@ -487,14 +574,26 @@ namespace Meadow.Studio
                 }
             });
 
+<<<<<<< Updated upstream
             var imgResp = await ImageService.GetImage(authService.currentUser.ProfileThumbnail);
+=======
+            imgResp = await ImageService.GetImage(authService.currentUser.ProfileThumbnail);
+>>>>>>> Stashed changes
 
             if (imgResp.success)
             {
                 userImage.style.backgroundImage = imgResp.data as Texture2D;
+<<<<<<< Updated upstream
             }
             else
             {
+=======
+                userImage.style.unityBackgroundImageTintColor = Color.white;
+            }
+            else
+            {
+                userImage.style.backgroundImage = AssetDatabase.LoadAssetAtPath<Texture2D>(pluginUtil.GetPluginDir(true) + "/Resources/profile-placeholder.png");
+>>>>>>> Stashed changes
                 // Debug.LogError("Error getting user image: " + imgResp.message);
             }
 
@@ -583,7 +682,20 @@ namespace Meadow.Studio
             bundleTypeDropdown.choices = new List<string> { "Experience", "MapMarker" };
             bundleTypeDropdown.value = "Experience";
 
+<<<<<<< Updated upstream
             //set toggles
+=======
+            bundleTypeDropdown.RegisterCallback<ChangeEvent<string>>((evt) =>
+            {
+                bundleType = evt.newValue;
+            });
+            if(refresh)
+            {
+                bundleTypeDropdown.value = bundleType;
+            }
+
+            //set ios toggle
+>>>>>>> Stashed changes
             Toggle iosToggle = root.Query<Toggle>("ios-platform-toggle");
             if(refresh)
             {
@@ -591,12 +703,21 @@ namespace Meadow.Studio
             }
             else
             {
+<<<<<<< Updated upstream
                 iosPlatformEnabled = false;
+=======
+                iosPlatformEnabled = true;
+>>>>>>> Stashed changes
             }
             iosToggle.RegisterCallback<ChangeEvent<bool>>((evt) =>
             {
                 iosPlatformEnabled = evt.newValue;
             });
+<<<<<<< Updated upstream
+=======
+            
+            //set the android toggle
+>>>>>>> Stashed changes
             Toggle androidToggle = root.Query<Toggle>("android-platform-toggle");
             if(refresh)
             {
@@ -604,12 +725,21 @@ namespace Meadow.Studio
             }
             else
             {
+<<<<<<< Updated upstream
                 androidPlatformEnabled = false;
+=======
+                androidPlatformEnabled = true;
+>>>>>>> Stashed changes
             }
             androidToggle.RegisterCallback<ChangeEvent<bool>>((evt) =>
             {
                 androidPlatformEnabled = evt.newValue;
             });
+<<<<<<< Updated upstream
+=======
+
+            //set the platform toggles
+>>>>>>> Stashed changes
             Dictionary<string, Toggle> toggles = new Dictionary<string, Toggle>
             {
                 { "Android", androidToggle },
@@ -653,7 +783,11 @@ namespace Meadow.Studio
                         {
                             if (toggle.Key())
                             {
+<<<<<<< Updated upstream
                                 SetABParameters(toggle.Value.Item1, toggle.Value.Item2, dropdown.value, selectedABName, experienceId);
+=======
+                                SetABParameters(toggle.Value.Item1, toggle.Value.Item2, bundleTypeDropdown.value, selectedABName, experienceId);
+>>>>>>> Stashed changes
                             }
                         }
                     }
@@ -718,6 +852,7 @@ namespace Meadow.Studio
             List<string> filesWithLabel = new List<string>();
             foreach (string path in assetBundlePaths[selectedABName])
             {
+<<<<<<< Updated upstream
                 if (Directory.Exists(path))
                 {
                     if(!filesWithLabel.Contains(path))
@@ -732,6 +867,9 @@ namespace Meadow.Studio
                         }
                     }
                 }
+=======
+                filesWithLabel.AddRange(GetDirectoryFiles(path));
+>>>>>>> Stashed changes
             }
 
             filesWithLabel.Distinct();
@@ -777,6 +915,37 @@ namespace Meadow.Studio
             filesColumn.Add(filesListView);
         }
 
+<<<<<<< Updated upstream
+=======
+        private List<string> GetDirectoryFiles(string path)
+        {
+            List<string> files = new List<string>();
+
+            //add the directory to the list
+            if(!files.Contains(path))
+                files.Add(path);
+
+            if (Directory.Exists(path))
+            {
+                string[] filesTmp = Directory.GetFiles(path);
+                foreach (string file in filesTmp)
+                {
+                    if(Path.GetExtension(file) != ".meta")
+                    {
+                        files.Add(file);
+                    }
+                }
+
+                string[] directories = Directory.GetDirectories(path);
+                foreach (string directory in directories)
+                {
+                    files.AddRange(GetDirectoryFiles(directory));
+                }
+            }
+            return files;
+        }
+
+>>>>>>> Stashed changes
         private void SetFilesPost(VisualElement post, string file)
         {
             Label fileNameLabel = post.Query<Label>("file-name-label");
@@ -789,7 +958,11 @@ namespace Meadow.Studio
             }
             else
             {
+<<<<<<< Updated upstream
                 fileSizeLabel.text = "Folder";
+=======
+                fileSizeLabel.text = "Size";
+>>>>>>> Stashed changes
             }
         }
 
@@ -833,14 +1006,22 @@ namespace Meadow.Studio
 
                 if (resp.code == 401)
                 {
+<<<<<<< Updated upstream
                     Debug.Log("Session expiered. Refreshing ");
+=======
+                    // Debug.Log("Session expired. Refreshing ");
+>>>>>>> Stashed changes
 
                     var authResp = await authService.RefreshToken();
 
                     if (authResp.success)
                     {
                         User u = authResp.data as User;
+<<<<<<< Updated upstream
                         Debug.Log("Token refreshed");
+=======
+                        // Debug.Log("Token refreshed");
+>>>>>>> Stashed changes
                         UploadAssetBundle(bundlePath, experienceId, buildInfo, buildTarget, selectedABName, u);
                     }
                     else
@@ -869,13 +1050,20 @@ namespace Meadow.Studio
 
             if (uploadResp.success)
             {
+<<<<<<< Updated upstream
                 Debug.Log("File uploaded successfully. " + buildTarget);
+=======
+>>>>>>> Stashed changes
                 EditorUtility.DisplayProgressBar("Uploading Asset Bundle", "Uploading...", 0.9f);
                 var deleteResp = await bundleService.DeleteExistingAssetBundleAndUpdateDB(guid, experienceId, buildInfo.buildType, buildTarget, buildInfo.bundleType);
 
                 if (deleteResp.success)
                 {
                     // Debug.Log("Old file deleted from storage and DB updated. " + buildTarget);
+<<<<<<< Updated upstream
+=======
+                    Debug.Log("<color=#559859><b>Meadow: </b></color>" + buildTarget + " Bundle uploaded successfully\n\n");
+>>>>>>> Stashed changes
                     EditorUtility.DisplayDialog("Success", buildTarget + " asset bundle uploaded successfully", "OK");
                     EditorUtility.ClearProgressBar();
 
@@ -910,7 +1098,11 @@ namespace Meadow.Studio
             return String.Format("{0:0.##} {1}", bytes, sizes[order]);
         }
 
+<<<<<<< Updated upstream
         private async void CheckForUpdates(){
+=======
+        private static async void CheckForUpdates(){
+>>>>>>> Stashed changes
             var resp = await updateService.CheckForUpdates();
 
             if (resp.success)
@@ -937,7 +1129,11 @@ namespace Meadow.Studio
             }
         }
 
+<<<<<<< Updated upstream
         private Task RunOnMainThread(Action action)
+=======
+        private static Task RunOnMainThread(Action action)
+>>>>>>> Stashed changes
         {
             var tcs = new TaskCompletionSource<bool>();
 

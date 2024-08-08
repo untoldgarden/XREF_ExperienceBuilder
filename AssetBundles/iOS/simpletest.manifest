@@ -1,0 +1,55 @@
+ManifestFileVersion: 0
+UnityVersion: 2023.2.20f1
+CRC: 1478503141
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b59d8c50dfe8ee0695b4765bd054d3c3
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f8a887cb285cdf76f0f242be9df4d262
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 7640debea02944c34ba18d12ce5f9bf5
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 039f7543ee8af46d9b7ef60bdf09ada4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 68dd29da16b67420caa98179df829f11, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.UnityEvent
+- AssemblyName: XREF.Core
+  ClassName: XREF.XR.ContentSettings/OcclusionSettings
+- AssemblyName: XREF.Core
+  ClassName: XREF.XR.ContentSettings/ReflectionSettings
+- AssemblyName: XREF.Core
+  ClassName: XREF.XR.ContentSettings/RepositionType
+Assets:
+- Assets/Examples/SimpleTest/Settings.asset
+- Assets/Examples/SimpleTest/Main.prefab
+- Assets/Temp/simpletest/XREFBundleMeta.txt
+Dependencies: []
