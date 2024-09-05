@@ -185,7 +185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6802124981980646723}
-  - component: {fileID: 1454717035567427985}
+  - component: {fileID: 2273207985437455427}
   - component: {fileID: 6285280217962462463}
   - component: {fileID: 2657080863643913668}
   - component: {fileID: 2392315647798108277}
@@ -212,7 +212,7 @@ Transform:
   - {fileID: 2095468194301533223}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1454717035567427985
+--- !u!114 &2273207985437455427
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -221,17 +221,68 @@ MonoBehaviour:
   m_GameObject: {fileID: 7757274937533080387}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e178f0836a5f4006b6ea3c101d328e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 68dd29da16b67420caa98179df829f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  realtimeDataManager: {fileID: 0}
-  userPresenceManager: {fileID: 0}
-  userGroupingManager: {fileID: 0}
-  pairingManager: {fileID: 0}
-  settings: {fileID: 11400000, guid: d5df632358d6945f0a77feeae38df287, type: 2}
-  OnInitialized:
-    m_PersistentCalls:
-      m_Calls: []
+  settings: {fileID: 0}
+  overrideMuteSwitch: 1
+  increaseScreenBrightness: 1
+  enableDefaultDirectionalLight: 1
+  facingDirection: 1
+  placementDistance: 3
+  repositionType: 0
+  verticalPositioning: 0
+  repositionThreshold: 0.1
+  smoothTime: 5
+  useGeofencing: 0
+  geofencingRadius: 0
+  geofencingStart: 0
+  cameraFacingDirection: 1
+  usePerformanceManager: 0
+  targetFPSAndroid: 30
+  targetFPSiOS: 60
+  usePointCloudManager: 0
+  pointCloudPrefab: {fileID: 0}
+  usePlaneManager: 1
+  planePrefab: {fileID: 0}
+  useFloorPlane: 1
+  floorPrefab: {fileID: 0}
+  planeDetectionMode: 1
+  occlusionSettings:
+  - useOcclusion: 0
+    environmentDepthMode: 1
+    temporalSmoothingEnabled: 1
+    humanSegmentationStencilMode: 2
+    humanSegmentationDepthMode: 0
+    occlusionPreferenceMode: 1
+  - useOcclusion: 0
+    environmentDepthMode: 1
+    temporalSmoothingEnabled: 1
+    humanSegmentationStencilMode: 2
+    humanSegmentationDepthMode: 0
+    occlusionPreferenceMode: 1
+  - useOcclusion: 0
+    environmentDepthMode: 1
+    temporalSmoothingEnabled: 1
+    humanSegmentationStencilMode: 2
+    humanSegmentationDepthMode: 0
+    occlusionPreferenceMode: 1
+  reflectionSettings:
+  - useReflections: 0
+    automaticPlacement: 1
+    environmentTextureFilter: 2
+  - useReflections: 0
+    automaticPlacement: 1
+    environmentTextureFilter: 2
+  - useReflections: 0
+    automaticPlacement: 1
+    environmentTextureFilter: 2
+  useStreetscapeGeometry: 0
+  streetscapeGeometryMaterial: {fileID: 0}
+  useARCameraBackgroundTexture: 0
+  arCameraBackgroundMode: 0
+  useLightEstimation: 0
+  isInitialized: 0
 --- !u!114 &6285280217962462463
 MonoBehaviour:
   m_ObjectHideFlags: 0
