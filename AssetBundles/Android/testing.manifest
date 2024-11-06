@@ -1,0 +1,73 @@
+ManifestFileVersion: 0
+UnityVersion: 6000.0.23f1
+CRC: 711948165
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 232dec9ee6de8b98d44a5ef814a1fa40
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 35b442ff89f67a44b6413e8256b8f929
+  IncrementalBuildHash:
+    serializedVersion: 2
+    Hash: 82e8b46fb67cd7e01cd1b07ae97ca091
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 95e66c6366d904e98bc83428217d4fd7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 039f7543ee8af46d9b7ef60bdf09ada4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 68dd29da16b67420caa98179df829f11, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b150b835d7a8e4b56b6cf9d78bfe43f2, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers:
+- AssemblyName: Unity.VisualScripting.Core
+  ClassName: Unity.VisualScripting.SerializationData
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.PersistentCallGroup
+- AssemblyName: UnityEngine.CoreModule
+  ClassName: UnityEngine.Events.UnityEvent
+- AssemblyName: XREF.Core
+  ClassName: XREF.Experience/OcclusionSettings
+- AssemblyName: XREF.Core
+  ClassName: XREF.Experience/ReflectionSettings
+- AssemblyName: XREF.Core
+  ClassName: XREF.XR.ContentSettings/OcclusionSettings
+- AssemblyName: XREF.Core
+  ClassName: XREF.XR.ContentSettings/ReflectionSettings
+- AssemblyName: XREF.ExperienceBuilder
+  ClassName: XREF.XR.Interaction.NamedLayerMask
+Assets:
+- Assets/Examples/TouchInteraction/Deselected.mat
+- Assets/Temp/testing/XREFBundleMeta.txt
+- Assets/Examples/TouchInteraction/TouchExample.asset
+- Assets/Examples/TouchInteraction/TouchInteraction.prefab
+- Assets/Examples/TouchInteraction/Selected.mat
+- Assets/Examples/TouchInteraction/SelectedObject.asset
+- Assets/Examples/TouchInteraction/TouchInteractionGraph.asset
+Dependencies: []

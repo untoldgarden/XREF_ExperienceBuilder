@@ -23,6 +23,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -35,6 +37,7 @@ namespace Meadow.Studio
     [InitializeOnLoad]
     public class MeadowStudioWindow : EditorWindow
     {
+        static MeadowStudioData studioMetadata;
         private JObject parsedResponse;
         private HashSet<string> selectedExperienceIds = new HashSet<string>();
         private Dictionary<string, List<string>> assetBundlePaths = new Dictionary<string, List<string>>();
@@ -73,6 +76,13 @@ namespace Meadow.Studio
             wnd.titleContent = new GUIContent("Meadow Studio", logo);
         }
 
+        [MenuItem("Meadow/Check for Updates", false, 200)]
+        public static void CheckForUpdatesMenu()
+        {
+            studioMetadata.LastUpdateCheckTime = (float)EditorApplication.timeSinceStartup;
+            CheckForUpdates();
+        }
+
         // [MenuItem("Meadow/Sign Out", false, 1000)]
         public static void SignOut()
         {
@@ -109,19 +119,13 @@ namespace Meadow.Studio
         }
         private static void OnEditorUpdate()
         {
-            // if (isLoading)
-            // {
-            //     angle += 2.0f;
-            //     if (angle >= 360.0f)
-            //         angle -= 360.0f;
+            InitializeStudioMetadata();
 
-            //     Repaint();
-            // }
-
-            if(EditorApplication.timeSinceStartup % 240 <= 0.01 && !CheckingForUpdates)
+            if((EditorApplication.timeSinceStartup % 240 <= 0.01 || (studioMetadata != null && (EditorApplication.timeSinceStartup - studioMetadata.LastUpdateCheckTime) > 240)) && !CheckingForUpdates)
             {
                 CheckingForUpdates = true;
                 // Debug.Log("Checking for updates");
+                studioMetadata.LastUpdateCheckTime = (float)EditorApplication.timeSinceStartup;
                 CheckForUpdates();
             }
             else if(EditorApplication.timeSinceStartup % 240 > 0.01 && CheckingForUpdates)
@@ -196,6 +200,9 @@ namespace Meadow.Studio
             var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(pluginUtil.GetPluginDir(true) + "/UI/Studio/sign-in.uxml");
             visualTree.CloneTree(root);
 
+            //Check if any banners need to be displayed and add them
+            CheckForBanners();
+
             //set the logo-text-container sprite color depending on the theme
             VisualElement logoTextContainer = root.Query<VisualElement>("logo-text-container");
             logoTextContainer.style.unityBackgroundImageTintColor = EditorGUIUtility.isProSkin ? new Color(1f, 1f, 1f) : new Color(0.2f, 0.2f, 0.2f);
@@ -250,6 +257,9 @@ namespace Meadow.Studio
             //create from ui document
             var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(pluginUtil.GetPluginDir(true) + "/UI/Studio/main.uxml");
             visualTree.CloneTree(root);
+
+            //Check if any banners need to be displayed and add them
+            CheckForBanners();
 
             //set the user profile information
             VisualElement userImage = root.Query<VisualElement>("user-image");
@@ -357,6 +367,51 @@ namespace Meadow.Studio
             CreateExperienceList(metadata, root);
         }
 
+        private void CheckForBanners()
+        {
+            //check if there is a config update available
+            if(MeadowSetupWindow.setupMetadata != null && MeadowSetupWindow.setupMetadata.SetupComplete && MeadowSetupWindow.setupMetadata.ConfigUpdateAvailable)
+            {
+                //get the banner-config.uxml file
+                var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(pluginUtil.GetPluginDir(true) + "/UI/Studio/banner-config.uxml");
+                
+                //add the banner to the root visual element
+                VisualElement root = rootVisualElement;
+                visualTree.CloneTree(root);
+
+                //setup the setup button
+                Button setupButton = root.Query<Button>("config-button");
+                setupButton.clicked += () =>
+                {
+                    if(EditorUtility.DisplayDialog("Meadow Config Update", "A Meadow config update is available. Would you like to update the project now?", "Yes", "Later"))
+                    {
+                        MeadowSetupWindow.UpdateSetupProcess();
+                    }
+                };
+            }
+
+            //check if there is an update available
+            //Add logic here that is loaded from a metadata file
+            if(studioMetadata != null && studioMetadata.UpdateAvailable == true && (studioMetadata.UpdateVersion != updateService.GetCurrentVersion()))
+            {
+                //get the banner-update.uxml file
+                var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(pluginUtil.GetPluginDir(true) + "/UI/Studio/banner-update.uxml");
+
+                //add the banner to the root visual element
+                VisualElement root = rootVisualElement;
+                visualTree.CloneTree(root);
+
+                //setup the update button
+                Button updateButton = root.Query<Button>("update-button");
+                updateButton.clicked += () =>
+                {
+                    //check for updates
+                    studioMetadata.LastUpdateCheckTime = (float)EditorApplication.timeSinceStartup;
+                    CheckForUpdates(true);
+                };
+            }
+        }
+
         /// <summary>
         /// Creates the experience list view and adds it to the content-container
         /// </summary>
@@ -457,6 +512,9 @@ namespace Meadow.Studio
             //create the upload ui from a uxml document
             var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(pluginUtil.GetPluginDir(true)+"/UI/Studio/upload.uxml");
             visualTree.CloneTree(root);
+
+            //Check if any banners need to be displayed and add them
+            CheckForBanners();
 
             //set the title
             Label experienceTitleLabel = root.Query<Label>("experience-title-label");
@@ -593,6 +651,20 @@ namespace Meadow.Studio
 
                 UpdateInspectBundleUI(selectedABName);
             }
+            else if(studioMetadata.ExperienceBundles.Keys.Contains(experienceId) && assetBundlePaths.ContainsKey(studioMetadata.ExperienceBundles[experienceId]))
+            {
+                dropdown.value = studioMetadata.ExperienceBundles[experienceId];
+                selectedABName = studioMetadata.ExperienceBundles[experienceId];
+                inspectBundleFoldout.SetEnabled(true);
+                inspectBundleFoldout.style.opacity = 1;
+
+                if(inspectBundleFoldoutOpen)
+                {
+                    inspectBundleFoldout.value = true;
+                }
+
+                UpdateInspectBundleUI(selectedABName);
+            }
             else
             {
                 inspectBundleFoldoutOpen = false;
@@ -616,6 +688,24 @@ namespace Meadow.Studio
             bundleTypeDropdown.RegisterCallback<ChangeEvent<string>>((evt) =>
             {
                 bundleType = evt.newValue;
+
+                if(bundleType == "Experience" && studioMetadata.ExperienceBundles.Keys.Contains(experienceId) && assetBundlePaths.ContainsKey(studioMetadata.ExperienceBundles[experienceId]))
+                {
+                    selectedABName = studioMetadata.ExperienceBundles[experienceId];
+                    dropdown.value = selectedABName;
+                    UpdateInspectBundleUI(selectedABName);
+                }
+                else if(bundleType == "MapMarker" && studioMetadata.MapMarkerBundles.Keys.Contains(experienceId) && assetBundlePaths.ContainsKey(studioMetadata.MapMarkerBundles[experienceId]))
+                {
+                    selectedABName = studioMetadata.MapMarkerBundles[experienceId];
+                    dropdown.value = selectedABName;
+                    UpdateInspectBundleUI(selectedABName);
+                }
+                else
+                {
+                    dropdown.value = "";
+                    selectedABName = "";
+                }
             });
             if(refresh)
             {
@@ -669,6 +759,18 @@ namespace Meadow.Studio
                     return;
                 }
 
+                //save the bundles to the studioMetadata
+                if(bundleTypeDropdown.value == "Experience" && !studioMetadata.ExperienceBundles.Keys.Contains(experienceId))
+                {
+                    studioMetadata.ExperienceBundles.Add(experienceId, selectedABName);
+                    WriteMeadowStudioData(studioMetadata);
+                }
+                else if(bundleTypeDropdown.value == "MapMarker" && !studioMetadata.MapMarkerBundles.Keys.Contains(experienceId))
+                {
+                    studioMetadata.MapMarkerBundles.Add(experienceId, selectedABName);
+                    WriteMeadowStudioData(studioMetadata);
+                }
+
                 if(toggles["iOS"].value || toggles["Android"].value)
                 {
                     if(CheckMetaGuidelines())
@@ -691,7 +793,42 @@ namespace Meadow.Studio
                             { () => toggles["iOS"].value, (Path.GetFullPath(Path.Combine(Application.dataPath, "../AssetBundles/iOS")), "IOS") },
                             { () => toggles["Android"].value, (Path.GetFullPath(Path.Combine(Application.dataPath, "../AssetBundles/Android")), "Android") },
                         };
+
+                        // Debug.Log("Experience Components Found: " + CheckForExperienceComponents(selectedABName));
+
+                        //Checks for experience components in asset bundle
+                        int experienceComponentsFound = CheckForExperienceComponents(selectedABName);
+
+                        //ensures that experience bundles contain only one experience component
+                        if(bundleTypeDropdown.value == "Experience")
+                        {
+                            if(experienceComponentsFound == 0)
+                            {
+                                if(EditorUtility.DisplayDialog("Error", "Experience component not found. Please ensure that the asset bundle contains an Experience component", "OK"))
+                                {
+                                    return;
+                                }
+                            }
+                            else if(experienceComponentsFound > 1)
+                            {
+                                if(EditorUtility.DisplayDialog("Error", experienceComponentsFound + " Experience components found. Please ensure that the asset bundle contains only one Experience component", "OK"))
+                                {
+                                    return;
+                                }
+                            }
+                        }
+
+                        //ensures that map marker bundles do not contain experience components
+                        if(bundleTypeDropdown.value == "MapMarker" && experienceComponentsFound > 0)
+                        {
+                            if(EditorUtility.DisplayDialog("Error", experienceComponentsFound + " Experience components found. Please ensure that the Map Marker asset bundle does not contain any Experience components", "OK"))
+                            {
+                                return;
+                            }
+                        }
                         
+                        // Debug.Log("Selected AB Name: " + selectedABName);
+
                         foreach (var toggle in toggleMap)
                         {
                             if (toggle.Key())
@@ -870,14 +1007,100 @@ namespace Meadow.Studio
             if (pluginUtil.BuildAssetBundles(buildInfo, selectedABName))
             {
                 var bundlePath = Path.Combine(buildInfo.outputDirectory, selectedABName.ToLower());
+    
+                Debug.Log("updating file name");
+                Debug.Log("File Exists: " + File.Exists(bundlePath));
+                //if dropdown is experience rename the file at the bundle path adding ".meb" to the name
+                if(dropdown == "Experience" && File.Exists(bundlePath))
+                {
+                    if(File.Exists(bundlePath + ".meb"))
+                    {
+                        File.Delete(bundlePath + ".meb");
+                    }
+                    File.Move(bundlePath, bundlePath + ".meb");
+                    Debug.Log("Bundle Path: " + bundlePath);
+                }
 
-                UploadAssetBundle(bundlePath, experienceId, buildInfo, buildTarget, selectedABName, user);
+                //if dropdown is MapMarker rename the file at the bundle path adding ".mmb" to the name
+                if(dropdown == "MapMarker" && File.Exists(bundlePath))
+                {
+                    if(File.Exists(bundlePath + ".mmb"))
+                    {
+                        File.Delete(bundlePath + ".mmb");
+                    }
+                    File.Move(bundlePath, bundlePath + ".mmb");
+                    Debug.Log("Bundle Path: " + bundlePath);
+                }
+
+                string extension = dropdown == "Experience" ? ".meb" : ".mmb";
+
+                UploadAssetBundle(bundlePath + extension, experienceId, buildInfo, buildTarget, selectedABName, user);
 
             }
             else
             {
                 Debug.Log("Failed to create asset bundle for " + buildInfo.buildTarget);
             }
+        }
+
+        private int CheckForExperienceComponents(string selectedABName)
+        {
+            int experienceComponentsFound = 0;
+            List<string> filesWithLabel = new List<string>();
+            foreach (string path in assetBundlePaths[selectedABName])
+            {
+                filesWithLabel.AddRange(GetDirectoryFiles(path));
+            }
+            filesWithLabel = filesWithLabel.Distinct().ToList();
+
+            // Get the Experience type using reflection
+            Type experienceType = Type.GetType("XREF.Experience, XREF.Core");
+
+            if (experienceType == null)
+            {
+                // Debug.LogWarning("Experience type not found. Make sure the package is installed or the type name is correct.");
+                return 0;
+            }
+
+            foreach (string file in filesWithLabel)
+            {
+                if (Path.GetExtension(file) == ".prefab")
+                {
+                    GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(file);
+                    if (prefab != null)
+                    {
+                        // experienceComponentsFound += CountExperienceComponentsInChildren(prefab.transform, experienceType);
+                        MethodInfo getComponentsInChildrenMethod = typeof(GameObject).GetMethod("GetComponentsInChildren", new Type[] { typeof(Type), typeof(bool) });
+                        if (getComponentsInChildrenMethod != null)
+                        {
+                            // Call GetComponentsInChildren on the prefab for the Experience type
+                            object[] components = (object[])getComponentsInChildrenMethod.Invoke(prefab, new object[] { experienceType, true });
+                            experienceComponentsFound += components.Length;
+                        }
+                    }
+                }
+            }
+
+            return experienceComponentsFound;
+        }
+
+        private int CountExperienceComponentsInChildren(Transform transform, Type experienceType)
+        {
+            int count = 0;
+            
+            // Check if the current GameObject has the Experience component
+            if (transform.GetComponent(experienceType) != null)
+            {
+                count++;
+            }
+
+            // Recursively check all children
+            foreach (Transform child in transform)
+            {
+                count += CountExperienceComponentsInChildren(child, experienceType);
+            }
+
+            return count;
         }
 
         private async void UploadAssetBundle(string bundlePath, string experienceId, BundleInfo buildInfo, string buildTarget, string selectedABName, User user)
@@ -968,7 +1191,7 @@ namespace Meadow.Studio
             return String.Format("{0:0.##} {1}", bytes, sizes[order]);
         }
 
-        private static async void CheckForUpdates(){
+        private static async void CheckForUpdates(bool openPrompt = false){
             var resp = await updateService.CheckForUpdates();
 
             if (resp.success)
@@ -978,13 +1201,25 @@ namespace Meadow.Studio
                     if(resp.message == "no-update")
                     {
                         // no update available
+                        if(studioMetadata.UpdateAvailable == true)
+                        {
+                            studioMetadata.UpdateAvailable = false;
+                            studioMetadata.UpdateVersion = "";
+                            WriteMeadowStudioData(studioMetadata);
+                        }
                     }
                     if(resp.message == "update-available")
                     {
                         string updateUrl = resp.data.ToString();
-                        if(EditorUtility.DisplayDialog("Update Available", "A new version of Meadow Studio is available. Do you want to download it?", "Yes", "No"))
+                        if(studioMetadata.UpdateAvailable == false || openPrompt)
                         {
-                            Application.OpenURL(updateUrl);
+                            studioMetadata.UpdateAvailable = true;
+                            studioMetadata.UpdateVersion = resp.version;
+                            WriteMeadowStudioData(studioMetadata);
+                            if(EditorUtility.DisplayDialog("Update Available", "A new version of Meadow Studio is available. Do you want to download it?", "Yes", "No"))
+                            {
+                                Application.OpenURL(updateUrl);
+                            }
                         }
                     }
                 });
@@ -1015,6 +1250,77 @@ namespace Meadow.Studio
 
             EditorApplication.update += EditorUpdate; // Subscribe
             return tcs.Task;
+        }
+
+        [System.Serializable]
+        public class MeadowStudioData
+        {
+            //studio metadata
+            public bool UpdateAvailable = false;
+            public string UpdateVersion = "";
+            public float LastUpdateCheckTime = 0;
+
+            public Dictionary<string, string> ExperienceBundles = new Dictionary<string, string>();
+            public Dictionary<string, string> MapMarkerBundles = new Dictionary<string, string>();
+        }
+
+        public static MeadowStudioData LoadMeadowStudioData()
+        {   
+            // Path to the file
+            string path = Path.Combine(Application.persistentDataPath, "meadow-studio.data");
+
+            // Check if the file exists
+            if(File.Exists(path))
+            {
+                // Create a binary formatter
+                BinaryFormatter formatter = new BinaryFormatter();
+
+                // Create a file stream
+                using (FileStream stream = new FileStream(path, FileMode.Open))
+                {
+                    // Deserialize the User object and return it
+                    MeadowStudioData data = formatter.Deserialize(stream) as MeadowStudioData;
+                    return data;
+                }
+            }
+            else
+            {
+                // Create a new MeadowSetupData object and return it
+                MeadowStudioData data = new MeadowStudioData();
+                return data;
+            }
+        }
+
+        public static void WriteMeadowStudioData(MeadowStudioData data)
+        {
+            // Path to the file
+            string path = Path.Combine(Application.persistentDataPath, "meadow-studio.data");
+
+            // Create a binary formatter
+            BinaryFormatter formatter = new BinaryFormatter();
+
+            // Create a file stream
+            using (FileStream stream = new FileStream(path, FileMode.Create))
+            {
+                // Serialize the User object and write it to the file
+                formatter.Serialize(stream, data);
+            }
+        }
+
+        private static void InitializeStudioMetadata()
+        {
+            if(studioMetadata != null)
+                return;
+            
+            studioMetadata = LoadMeadowStudioData();
+            
+            //if its still null create a new setup metadata file
+            if(studioMetadata == null)
+            {
+                //create a new setup metadata file
+                studioMetadata = new MeadowStudioData();
+                WriteMeadowStudioData(studioMetadata);
+            }
         }
 
         // Upload asset bundle using the Signed URL

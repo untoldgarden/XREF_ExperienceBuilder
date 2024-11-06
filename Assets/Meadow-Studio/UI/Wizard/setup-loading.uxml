@@ -1,0 +1,20 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Meadow-Studio/UI/USS/main.uss?fileID=7433441132597879392&amp;guid=6636e92f09f7d433fbcc67b6b88f8944&amp;type=3#main" />
+    <Style src="project://database/Assets/Meadow-Studio/UI/USS/optional-packages.uss?fileID=7433441132597879392&amp;guid=5efdefd0887614e8fa319ae17aa6473c&amp;type=3#optional-packages" />
+    <engine:VisualElement name="header-background" style="flex-grow: 1; position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.27); visibility: hidden;" />
+    <engine:VisualElement name="setup-loading-container" style="flex-grow: 0; width: auto; height: auto; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; opacity: 1;">
+        <engine:VisualElement name="header-container" style="flex-grow: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-right: 0; padding-left: 0; padding-top: 0; padding-bottom: 0; flex-shrink: 0;">
+            <engine:VisualElement name="title-container" style="flex-grow: 1; padding-bottom: 5px; padding-right: 10px; padding-left: 10px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); flex-direction: row;">
+                <engine:VisualElement name="logo-image" style="flex-grow: 0; width: 35px; height: 35px; -unity-background-scale-mode: scale-and-crop; background-image: resource(&apos;logo_icon&apos;); flex-shrink: 0;" />
+                <engine:Label text="Setup in progress" name="title-label" style="position: relative; height: 35px; width: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 10px; font-size: 18px; -unity-text-align: middle-left; -unity-font-style: bold;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="description-container" style="flex-grow: 1; padding-top: 5px; padding-left: 10px; padding-bottom: 5px; padding-right: 10px; border-bottom-width: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0.19);">
+                <engine:Label text="Please wait while your project is being setup" name="description-label" style="-unity-font-style: normal; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 5px; font-size: 12px; visibility: visible;" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+    <engine:ProgressBar value="0" name="progress-bar" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+    <engine:VisualElement name="splash" style="flex-grow: 1; background-image: resource(&apos;LoadingSplash_GigaAnnum&apos;); -unity-background-scale-mode: scale-and-crop; position: relative; width: auto; height: auto;" />
+    <engine:VisualElement name="loading-icon" style="flex-grow: 1; position: absolute; width: 25%; height: 25%; left: 37.5%; top: 37.5%; background-image: resource(&apos;loading-icon&apos;); -unity-background-scale-mode: scale-to-fit; opacity: 0.65; display: none;" />
+    <engine:Label text="Giga-annum by Åsa Cederqvist" name="splash-credit" style="position: absolute; bottom: 20px; right: 20px; -unity-font-style: bold; color: rgb(226, 226, 226); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 10px;" />
+</engine:UXML>

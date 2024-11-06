@@ -11,5 +11,6 @@ namespace Meadow.Studio
         public object data;
         public string message;
         public long code;
+        public string version;
     }
 }

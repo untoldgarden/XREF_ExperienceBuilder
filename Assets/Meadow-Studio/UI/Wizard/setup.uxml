@@ -1,0 +1,37 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Meadow-Studio/UI/USS/main.uss?fileID=7433441132597879392&amp;guid=6636e92f09f7d433fbcc67b6b88f8944&amp;type=3#main" />
+    <Style src="project://database/Assets/Meadow-Studio/UI/USS/setup.uss?fileID=7433441132597879392&amp;guid=db493aff7b69449cb9507fde6c696a35&amp;type=3#setup" />
+    <engine:VisualElement name="setup-container" style="flex-grow: 1; width: auto; height: auto; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;">
+        <engine:VisualElement name="header-container" style="flex-grow: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-right: 0; padding-left: 0; padding-top: 0; padding-bottom: 0; flex-shrink: 0;">
+            <engine:VisualElement name="title-container" style="flex-grow: 1; padding-bottom: 5px; padding-right: 10px; padding-left: 10px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); flex-direction: row;">
+                <engine:VisualElement name="logo-image" style="flex-grow: 0; width: 35px; height: 35px; -unity-background-scale-mode: scale-and-crop; background-image: resource(&apos;logo_icon&apos;); flex-shrink: 0;" />
+                <engine:Label text="Project setup" name="title-label" style="position: relative; height: 35px; width: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 10px; font-size: 18px; -unity-text-align: middle-left; -unity-font-style: bold;" />
+            </engine:VisualElement>
+            <engine:VisualElement name="description-container" style="flex-grow: 1; padding-top: 5px; padding-left: 10px; padding-bottom: 5px; padding-right: 10px; border-bottom-width: 0; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); background-color: rgba(0, 0, 0, 0.19);">
+                <engine:Label text="Before you can build experiences for the Meadow platform your project needs to be setup" name="description-label" style="-unity-font-style: normal; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 5px; font-size: 12px;" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement name="content-container" style="flex-grow: 1;">
+            <engine:VisualElement name="content-scroll-container" style="flex-grow: 1; padding-left: 15px; padding-right: 50px; padding-top: 20px; height: 100%; width: 100%; align-items: flex-start; padding-bottom: 60px;">
+                <engine:Label text="Welcome to Meadow" name="welcome-label" style="font-size: 18px; -unity-font-style: bold; align-self: auto; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                <engine:Label text="This process will install all the core packages required to build an experience for the Meadow platform. It will also allow you to install a range of optional packages for added functionality." name="welcome-body-label" style="padding-top: 20px; padding-bottom: 20px; flex-wrap: wrap; white-space: normal; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-right: 0; padding-left: 0; visibility: visible; display: flex;" />
+                <engine:VisualElement name="divider-container" style="flex-grow: 1; width: 100%; flex-direction: row; padding-right: 20px; padding-top: 10px; padding-left: 0;">
+                    <engine:VisualElement name="left-pane" style="flex-grow: 1; min-width: 50%; padding-right: 0; padding-left: 0; border-right-width: 0; border-left-color: rgba(159, 159, 159, 0.47); border-right-color: rgba(159, 159, 159, 0.47); border-top-color: rgba(159, 159, 159, 0.47); border-bottom-color: rgba(159, 159, 159, 0.47); border-top-width: 0; border-bottom-width: 0; border-left-width: 0; margin-right: 27.5px;">
+                        <engine:Label text="New projects:" name="new-projects-title-label" style="padding-top: 20px; padding-bottom: 0; flex-wrap: wrap; white-space: normal; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-right: 0; padding-left: 0; -unity-font-style: bold;" />
+                        <engine:Label text="Follow the setup process to begin, this is the fastest way to get started with an experience in Meadow&#10;&#10;For more information refer to the Meadow manual" name="new-projects-body-label" style="padding-top: 20px; padding-bottom: 0; flex-wrap: wrap; white-space: normal;" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="divider-line" style="border-left-color: rgba(159, 159, 159, 0.47); border-right-color: rgba(159, 159, 159, 0.47); border-top-color: rgba(159, 159, 159, 0.47); border-bottom-color: rgba(159, 159, 159, 0.47); border-right-width: 1px; padding-top: 0; align-self: center; align-items: auto; height: 100%;" />
+                    <engine:VisualElement name="right-pane" style="flex-grow: 1; min-width: 50%; padding-left: 20px; padding-right: 0;">
+                        <engine:Label text="Existing projects:" name="existing-projects-title-label" style="padding-top: 20px; padding-bottom: 0; flex-wrap: wrap; white-space: normal; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-right: 0; padding-left: 0; -unity-font-style: bold;" />
+                        <engine:Label text="For all existing projects we recommmend that users create a complete backup.&#10;&#10;Please check the conversion guide in the Meadow manual for more information" name="existing-projects-body-label" style="padding-top: 20px; padding-bottom: 40px; flex-wrap: wrap; white-space: normal;" />
+                    </engine:VisualElement>
+                </engine:VisualElement>
+                <engine:Toggle label="I agree to the terms and would like to proceed*" name="consent-toggle" style="align-self: center; bottom: 10px; position: absolute; display: none;" />
+            </engine:VisualElement>
+            <engine:ScrollView horizontal-scroller-visibility="Hidden" name="content-scrollview" mode="Vertical" style="width: 100%; height: 100%; display: none;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="footer-container" style="flex-grow: 0; height: 50px; flex-direction: row-reverse; margin-bottom: 0; margin-right: 0; margin-left: 0; margin-top: 0; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px; flex-shrink: 0; justify-content: center;">
+            <engine:Button text="Next" name="next-button" style="width: 100px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; opacity: 1;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

@@ -1,16 +1,9 @@
 ManifestFileVersion: 0
-UnityVersion: 2023.2.20f1
-<<<<<<< Updated upstream
-CRC: 1011972035
+UnityVersion: 6000.0.23f1
+CRC: 1835091937
+HashAppended: 0
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: ardebugmenu
-=======
-CRC: 68458064
-AssetBundleManifest:
-  AssetBundleInfos:
-    Info_0:
-      Name: simpletest
->>>>>>> Stashed changes
+      Name: testing
       Dependencies: {}

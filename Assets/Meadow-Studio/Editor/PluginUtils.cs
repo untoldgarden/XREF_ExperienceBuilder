@@ -309,6 +309,7 @@ namespace Meadow.Studio
 
             return num3;
         }
+
         public Dictionary<string, List<string>> RetrieveAllAssetPaths()
         {
             //refresh the asset database

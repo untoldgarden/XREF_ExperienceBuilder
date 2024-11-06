@@ -1,0 +1,7 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Meadow-Studio/UI/USS/main.uss?fileID=7433441132597879392&amp;guid=6636e92f09f7d433fbcc67b6b88f8944&amp;type=3#main" />
+    <engine:VisualElement name="banner-config" style="flex-grow: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; height: auto; flex-direction: row; padding-right: 10px; padding-left: 10px; padding-top: 5px; padding-bottom: 10px; background-color: rgba(0, 0, 0, 0.16); border-left-color: rgb(75, 75, 75); border-right-color: rgb(75, 75, 75); border-top-color: rgb(75, 75, 75); border-bottom-color: rgb(75, 75, 75); border-top-width: 0.5px; flex-shrink: 0;">
+        <engine:Label text="Meadow configuration update available" name="config-body" style="flex-grow: 1;" />
+        <engine:Button text="Update" name="config-button" style="align-self: auto; flex-grow: 0; width: 75px; height: 15px; background-color: rgb(85, 152, 89);" />
+    </engine:VisualElement>
+</engine:UXML>

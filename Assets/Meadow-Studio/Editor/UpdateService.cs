@@ -56,7 +56,7 @@ namespace Meadow.Studio
                 {
                     
                     string updateUrl = release["assets"][0]["browser_download_url"].ToString();
-                    return new HTTPSResponse { success = true, data = updateUrl, message = "update-available" };
+                    return new HTTPSResponse { success = true, data = updateUrl, message = "update-available", version = version };
                 }
                 else
                 {
